@@ -4,17 +4,6 @@ import Home from "./components/home/Home";
 import Header from "./components/navigation/header";
 import { useState } from "react";
 
-// const App = () => {
-//   return <Router>
-//     {/* NavBar is here */}
-//     <Switch>
-//       <Route path={"/signin"}>
-
-//       </Route>
-//     </Switch>
-//   </Router>
-// }
-
 const App = () => {
   const [homeContent, setHomeContent] = useState(false);
   const [auth, setAuth] = useState(true);
@@ -38,7 +27,7 @@ const App = () => {
       setHomeContent(true);
       setUsername("");
       setPassword("");
-      setHome(false)
+      setHome(false);
     }
   };
 
@@ -56,7 +45,7 @@ const App = () => {
           handleSubmit={handleSubmit}
         />
       )}
-      {!home && <Home/>}
+      {!home && <Home />}
     </>
   );
 };
