@@ -1,0 +1,22 @@
+.databox {
+  flex: 1;
+  display: flex;
+}
+
+.leftdata {
+  flex: 1;
+  display: flex;
+  padding: 5px;
+  border: 1px rgb(159, 158, 158) solid;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.rightdata {
+  flex: 1;
+  display: flex;
+  padding: 5px;
+  border: 1px rgb(159, 158, 158) solid;
+  flex-direction: column;
+  justify-content: center;
+}
