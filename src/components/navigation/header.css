@@ -21,14 +21,10 @@
 .navbtn .signup {
   background-color: white;
   padding: 13px;
-  /* border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem; */
 }
 .navbtn .signin {
   background-color: #00d7ff;
   padding: 13px;
-  /* border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem; */
 }
 .user {
   display: flex;
