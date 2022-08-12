@@ -1,0 +1,18 @@
+.databox {
+  flex: 1;
+  display: flex;
+}
+
+.leftdata {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px rgb(159, 158, 158) solid;
+}
+
+.rightdata {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px rgb(159, 158, 158) solid;
+}

@@ -1,0 +1,62 @@
+.settings {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingscontainer {
+  width: 90%;
+  height: 80%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.userProfile {
+  background-color: white;
+  height: 600px;
+  width: 500px;
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px 5px;
+}
+
+.userProfileName {
+  flex: 1;
+}
+
+.userDetailsContainer {
+  flex: 6;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfile {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editProfileButton {
+  height: 40px;
+  width: 140px;
+  border: none;
+  outline: none;
+}
+
+.history {
+  background-color: white;
+  height: 600px;
+  width: 500px;
+}
