@@ -1,8 +1,10 @@
-// import { Homepage } from "../Homepage/Homepage";
-// import "./Home.css";
+import "./Home.css";
+import { useState } from "react";
+import Settings from "../settings/Settings";
 
-// const Home = () => {
-//   return <Homepage />;
-// };
+const Home = () => {
+  const [settings, setSettings] = useState(true);
+  return <>{settings && <Settings />}</>;
+};
 
-// export default Home;
+export default Home;
