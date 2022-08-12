@@ -1,50 +1,146 @@
-import './auth.css'
+import "./auth.css";
+import { useState } from "react";
+import { registerUser } from "../../api";
 
 export const Register = () => {
-    return <>
-        <form className='auth'>
-            <h1>Sign up</h1>
-            <h3>Monitor your health from your home</h3>
+  const [regData, setRegData] = useState({
+    firstName: "",
+    lastName: "",
+    userName: "",
+    email: "",
+    gender: "",
+    age: "",
+    address: "",
+    password: "",
+    ConPassword: "",
+  });
 
-            <label htmlFor="firstName">First Name</label>
-            <input type="text" name='firstName' id='firstName'/>
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" name='lastName' id='lastName'/>
+  const handleOnsubmit = async (e) => {
+    e.preventDefault();
+    console.log(regData.password, regData.ConPassword);
+    if (regData.password !== regData.ConPassword) {
+      alert("Passwords dont match");
+      return;
+    }
+    const response = await registerUser(regData);
+    console.log(response);
+  };
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setRegData({ ...regData, [name]: value });
+    console.log(regData);
+  };
 
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
+  return (
+    <>
+      <form className="auth" onSubmit={handleOnsubmit}>
+        <h1>Sign up</h1>
+        <h3>Monitor your health from your home</h3>
 
-            <div className="gender">
-                <p>Gender</p>
+        <label htmlFor="firstName">First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstName"
+          required
+          onChange={handleOnChange}
+        />
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastName"
+          required
+          onChange={handleOnChange}
+        />
 
-                <input type="radio" name="gender" id="male" />
-                <label htmlFor="male">Male</label>
-                <input type="radio" name="gender" id="female" />
-                <label htmlFor="female">Female</label>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="userName"
+          id="username"
+          required
+          onChange={handleOnChange}
+        />
 
-            </div>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          onChange={handleOnChange}
+        />
 
-            <label htmlFor="age">Age </label>
-            <input type="number" name="age" id="age" />
+        <div className="gender">
+          <p>Gender</p>
 
-            <label htmlFor="address">Address </label>
-            <input type="text" name='address' id='address' />
+          <input
+            type="radio"
+            name="gender"
+            id="male"
+            value="male"
+            onChange={handleOnChange}
+          />
+          <label htmlFor="male">Male</label>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            onChange={handleOnChange}
+            value="female"
+          />
+          <label htmlFor="female">Female</label>
+        </div>
 
-            <label htmlFor="username">Username</label>
-            <input type="text" name='username' id='username'/>
+        <label htmlFor="age">Age </label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          required
+          onChange={handleOnChange}
+        />
 
-            <label htmlFor="password">Password </label>
-            <input type="password" name='password' id='password' />
+        <label htmlFor="address">Address </label>
+        <input
+          type="text"
+          name="address"
+          id="address"
+          required
+          onChange={handleOnChange}
+        />
 
-            <label htmlFor="ConPassword">Confirm Password </label>
-            <input type="password" name='ConPassword' id='ConPassword' />
+        <label htmlFor="password">Password </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          required
+          onChange={handleOnChange}
+        />
 
+        <label htmlFor="ConPassword">Confirm Password </label>
+        <input
+          type="password"
+          name="ConPassword"
+          id="ConPassword"
+          required
+          onChange={handleOnChange}
+        />
 
+        <button type="submit" className="btn">
+          Sign up
+        </button>
 
-            <button type='submit' className='btn'>Sign up</button>
-
-            <h4>Already have an account? <a href="#" className="create">Login here</a></h4>
-        </form>
-    </>;
-}
+        <h4>
+          Already have an account?{" "}
+          <a href="#" className="create">
+            Login here
+          </a>
+        </h4>
+      </form>
+    </>
+  );
+};
