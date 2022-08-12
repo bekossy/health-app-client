@@ -17,7 +17,6 @@
 }
 
 .userProfile {
-  background-color: white;
   height: 600px;
   width: 500px;
 }
@@ -28,6 +27,7 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 15px 5px;
+  overflow: hidden;
 }
 
 .userProfileName {
@@ -39,6 +39,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+  overflow: hidden;
 }
 
 .editProfile {

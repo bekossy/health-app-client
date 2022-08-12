@@ -8,6 +8,11 @@
   display: flex;
   align-items: center;
   border: 1px rgb(159, 158, 158) solid;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5px;
+  gap: 15px;
 }
 
 .rightdata {
@@ -15,4 +20,9 @@
   display: flex;
   align-items: center;
   border: 1px rgb(159, 158, 158) solid;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5px;
+  gap: 15px;
 }
