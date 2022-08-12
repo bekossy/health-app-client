@@ -1,0 +1,55 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar .navImage img {
+  width: 100px;
+}
+
+.navbtn {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+.navbtn .signup {
+  background-color: white;
+  padding: 13px;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.navbtn .signin {
+  background-color: brown;
+  padding: 13px;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+.user {
+  display: flex;
+  place-items: center;
+}
+.userIcon svg {
+  margin-left: 20px;
+}
+
+.formContainer {
+  padding: 1rem 2rem;
+  max-width: 500px;
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 1);
+  padding-left: calc(var(--bs-gutter-x) * 1);
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 130px;
+  margin-bottom: 40px;
+  background-color: brown;
+}
