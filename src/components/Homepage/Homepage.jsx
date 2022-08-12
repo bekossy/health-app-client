@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { Appointment } from "../appointment/appointment";
+import { Dosage } from "../dosage/Dosage";
+import { Vitals } from "../vitals/vitals";
 import "./Homepage.css";
 
 export const Homepage = () => {
@@ -20,69 +24,11 @@ export const Homepage = () => {
         </form>
 
         <div className="homeContent">
-          <div className="vitals">
-            <h1>your Vitals</h1>
-            <div className="vitalContainer">
-              <h3>Heart rate: 21bpm</h3>
-              <h3>Blood pressure: 120/80mmhg</h3>
-              <h3>Glucose level: 130 mg/dLm</h3>
-              <h3>Weight: 75kg</h3>
-            </div>
-          </div>
+          <Vitals />
 
           <div className="medicals">
-            <div className="appointment">
-              <h1>appointment</h1>
-              <div className="appointContainer">
-                <div className="appointContent">
-                  <h1>Day</h1>
-                  <div className="appointDetails">
-                    <h4>12/12/12</h4>
-                    <h4>12/12/12</h4>
-                  </div>
-                </div>
-                <div className="appointContent">
-                  <h1>Time</h1>
-                  <div className="appointDetails">
-                    <h4>1:14</h4>
-                    <h4>1:14</h4>
-                  </div>
-                </div>
-                <div className="appointContent">
-                  <h1>Purpose</h1>
-                  <div className="appointDetails">
-                    <h4>Dental checkup</h4>
-                    <h4>Dental checkup</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="medDos">
-              <h1>Medical Dosage</h1>
-              <div className="medDosContainer">
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-                <div className="dosContent">
-                  <h1>Hello</h1>
-                </div>
-              </div>
-            </div>
+            <Appointment />
+            <Dosage />
           </div>
         </div>
       </section>
