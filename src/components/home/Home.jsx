@@ -1,11 +1,8 @@
-import "./Home.css"
+import { Homepage } from "../Homepage/Homepage";
+import "./Home.css";
 
 const Home = () => {
-  return (
-    <div>
-      home
-    </div>
-  )
-}
+  return <Homepage />;
+};
 
-export default Home
+export default Home;
