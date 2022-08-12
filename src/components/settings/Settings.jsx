@@ -34,7 +34,7 @@ const Settings = () => {
         </div>
         <div className="userProfile">
           <h2 className="userProfileName">Medical History</h2>
-          <div className="userDetailsContainer">dataNew</div>
+          <div className="userDetailsContainer">data</div>
           <div className="editProfile">
             <button className="editProfileButton">Edit Profile</button>
           </div>
