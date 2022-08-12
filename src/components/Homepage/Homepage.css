@@ -75,12 +75,28 @@ input[type="search"]:focus {
   overflow-y: scroll;
   border-radius: 1.2rem;
 }
+.medDosContainer {
+  padding: 20px;
+}
+.dosContent {
+  padding: 30px 10px;
+}
 .appointContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 .appointContent {
   text-align: center;
+  margin: 20px 0;
+}
+.appointContent h1 {
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.appointDetails h4 {
+  margin-bottom: 40px;
 }
 .medDosContainer .dosContent {
   border-bottom: 1px solid gray;
