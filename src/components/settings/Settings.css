@@ -19,9 +19,6 @@
 .userProfile {
   height: 600px;
   width: 500px;
-}
-
-.userProfile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +56,22 @@
 }
 
 .history {
-  background-color: white;
   height: 600px;
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 15px 5px;
+  overflow: hidden;
+}
+
+.historyDetailsContainer {
+  flex: 6;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 1rem;
+  overflow-x: scroll;
 }
