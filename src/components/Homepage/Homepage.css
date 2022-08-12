@@ -1,3 +1,27 @@
 .homeContainer {
   height: 100vh;
 }
+
+.search {
+  display: flex;
+  float: right;
+  margin-top: 20px;
+}
+.search svg {
+  position: relative;
+  top: 8px;
+  right: 35px;
+}
+
+input[type="search"],
+input[type="search"]:focus {
+  outline: none;
+  display: block;
+  padding: 0.45rem 1rem;
+  padding-right: 30px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border-radius: 0.375rem;
+}
