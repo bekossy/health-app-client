@@ -5,12 +5,6 @@ export const Homepage = () => {
     <>
       <section className="homeContainer">
         <form className="search">
-          <input
-            type="search"
-            name="search"
-            id="search"
-            placeholder="search for appointments..."
-          />
           <svg style={{ width: "30px", height: "30px" }} viewBox="0 0 24 24">
             <path
               fill="#2a68db"

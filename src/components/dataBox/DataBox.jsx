@@ -9,8 +9,8 @@ const DataBox = ({ leftfield, leftdata, rightfield, rightdata }) => {
         <div className="leftDataData">{leftdata}</div>
       </div>
       <div className="rightdata">
-        <div className="rightdataFeild">{rightfield}</div>
-        <div className="rightDataData">{rightdata}</div>
+        <div className="leftdataFeild">{rightfield}</div>
+        <div className="leftDataData">{rightdata}</div>
       </div>
     </div>
   );
