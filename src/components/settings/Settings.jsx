@@ -1,6 +1,7 @@
 import React from "react";
 import "./Settings.css";
 import DataBox from "../dataBox/dataBox";
+import Conditions from "../conditions/Conditions";
 
 const Settings = () => {
   return (
@@ -32,11 +33,26 @@ const Settings = () => {
             <button className="editProfileButton">Edit Profile</button>
           </div>
         </div>
-        <div className="userProfile">
+        <div className="history">
           <h2 className="userProfileName">Medical History</h2>
-          <div className="userDetailsContainer">data</div>
+          <div className="historyDetailsContainer">
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+            <Conditions />
+          </div>
           <div className="editProfile">
-            <button className="editProfileButton">Edit Profile</button>
+            <button className="editProfileButton">New Condition</button>
           </div>
         </div>
       </div>

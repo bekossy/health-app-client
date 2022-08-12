@@ -1,0 +1,18 @@
+.conditions {
+  border: 1px rgb(159, 158, 158) solid;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  justify-content: center;
+  height: 75px;
+}
+
+.conditionsContainer {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
