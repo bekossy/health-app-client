@@ -39,16 +39,18 @@ input[type="number"] {
   padding: 0.7rem 0.75rem;
   margin-top: 20px;
   margin-bottom: 15px;
-  background-color: red;
+  background: linear-gradient(1deg, #295e76, #43a9bd);
+  color: white;
   font-weight: 600;
   font-size: 20px;
-  border: 1px solid red;
+  border: 1px solid #43a9bd;
   transition: all 0.4s linear;
   cursor: pointer;
 }
 
 .auth .btn:hover {
-  background-color: white;
+  background: white;
+  color: #43a9bd;
 }
 
 .auth h4 {

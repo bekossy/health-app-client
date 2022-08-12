@@ -3,14 +3,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background-color: blue;
-  position: fixed;
-  top: 0;
+  background-color: #25606a;
   width: 100%;
 }
 
 .navbar .navImage img {
-  width: 100px;
+  width: 55px;
+  margin-left: 20px;
 }
 
 .navbtn {
@@ -22,14 +21,14 @@
 .navbtn .signup {
   background-color: white;
   padding: 13px;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  /* border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem; */
 }
 .navbtn .signin {
-  background-color: brown;
+  background-color: #00d7ff;
   padding: 13px;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
+  /* border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem; */
 }
 .user {
   display: flex;
@@ -49,7 +48,6 @@
   padding-left: calc(var(--bs-gutter-x) * 1);
   margin-right: auto;
   margin-left: auto;
-  margin-top: 130px;
-  margin-bottom: 40px;
-  background-color: brown;
+  margin-top: 50px;
+  background-color: white;
 }
