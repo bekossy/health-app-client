@@ -19,13 +19,49 @@ export const Homepage = () => {
           </svg>
         </form>
 
-        <div className="vitals">
-          <h1>your Vitals</h1>
-          <div className="vitalContainer">
-            <h3>Heart rate: 21bpm</h3>
-            <h3>Blood pressure: 120/80mmhg</h3>
-            <h3>Heart rate: 21bpm</h3>
-            <h3>Blood pressure: 120/80mmhg</h3>
+        <div className="homeContent">
+          <div className="vitals">
+            <h1>your Vitals</h1>
+            <div className="vitalContainer">
+              <h3>Heart rate: 21bpm</h3>
+              <h3>Blood pressure: 120/80mmhg</h3>
+              <h3>Heart rate: 21bpm</h3>
+              <h3>Blood pressure: 120/80mmhg</h3>
+            </div>
+          </div>
+
+          <div className="medicals">
+            <div className="appointment">
+              <h1>appointment</h1>
+              <div className="appointContainer">
+                <div className="appointContent">
+                  <h1>Hello</h1>
+                  <h3>Hi</h3>
+                </div>
+                <div className="appointContent">
+                  <h1>Hello</h1>
+                  <h2>Hi</h2>
+                </div>
+                <div className="appointContent">
+                  <h1>Hello</h1>
+                  <h4>Hi</h4>
+                </div>
+              </div>
+            </div>
+            <div className="medDos">
+              <h1>Medical Dosage</h1>
+              <div className="medDosContainer">
+                <div className="dosContent">
+                  <h1>Hello</h1>
+                </div>
+                <div className="dosContent">
+                  <h1>Hello</h1>
+                </div>
+                <div className="dosContent">
+                  <h1>Hello</h1>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
