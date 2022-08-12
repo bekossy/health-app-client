@@ -4,7 +4,7 @@ import { Homepage } from "../Homepage/Homepage";
 import "./Home.css";
 
 const Home = () => {
-  const [settings, setSettings] = useState(false);
+  const [settings, setSettings] = useState(true);
   return <>{settings ? <Homepage /> : <Settings />}</>;
 };
 export default Home;
