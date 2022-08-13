@@ -1,0 +1,25 @@
+footer {
+  background: linear-gradient(1deg, #295e76, #43a9bd);
+  padding: 10px 80px;
+  margin-top: 30px;
+}
+
+footer button {
+  float: right;
+  position: relative;
+  bottom: 57px;
+  border: 1px solid gray;
+  border-bottom-right-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  background-color: #00d7ff;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    padding: 10px 40px;
+  }
+}
