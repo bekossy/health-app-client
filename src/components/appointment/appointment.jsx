@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export const Appointment = () => {
+export const Appointment = ({ appointments}) => {
   const appoints = [
     {
-      id: new Date().getTime().toString(),
+      id: 1,
       day: "12/04/20",
       time: "1:37",
       purpose: "Dental checkup",
     },
     {
-      id: new Date().getTime().toString(),
+      id: 2,
       day: "16/10/22",
       time: "19:38",
       purpose: "Drugs Refill",
@@ -24,8 +24,8 @@ export const Appointment = () => {
           <div className="appointContent">
             <h1>Day</h1>
             <div className="appointDetails">
-              {appoint.map((day) => (
-                <h4>{day.day}</h4>
+              {appointments.map((day) => (
+                <h4 key={day.id}>{day.day}</h4>
               ))}
             </div>
           </div>
@@ -33,7 +33,7 @@ export const Appointment = () => {
             <h1>Time</h1>
             <div className="appointDetails">
               {appoint.map((time) => (
-                <h4>{time.time}</h4>
+                <h4 key={time.id}>{time.time}</h4>
               ))}
             </div>
           </div>
@@ -41,7 +41,7 @@ export const Appointment = () => {
             <h1>Purpose</h1>
             <div className="appointDetails">
               {appoint.map((purpose) => (
-                <h4>{purpose.purpose}</h4>
+                <h4 key={purpose.id}>{purpose.purpose}</h4>
               ))}
             </div>
           </div>

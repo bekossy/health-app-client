@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./auth.css";
+import axios from "axios";
 
 export const Login = ({
   password,
@@ -8,20 +10,48 @@ export const Login = ({
   setUsername,
   handleSubmit,
   signin,
+  setHome,
+  setUser,
 }) => {
+  const [logData, setLogData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault();
+    const response = await axios.post(
+      "https://healthserver-psa.herokuapp.com/api/user/login",
+      logData
+    );
+    if (response.status === 200) {
+      setHome(false);
+      localStorage.setItem("user", JSON.stringify(response.data));
+      setUser(JSON.parse(localStorage.getItem("user")));
+      navigate("/home");
+    }
+  };
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setLogData({ ...logData, [name]: value });
+    console.log(logData);
+  };
+
   return (
     <>
-      <form className="auth" onSubmit={handleSubmit}>
+      <form className="auth" onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <h3>Monitor your health from your home</h3>
 
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          name="username"
+          name="email"
           id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={handleOnChange}
         />
 
         <label htmlFor="password">Password</label>
@@ -29,8 +59,7 @@ export const Login = ({
           type="password"
           name="password"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleOnChange}
         />
 
         <button type="submit" className="btn">

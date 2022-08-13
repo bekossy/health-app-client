@@ -1,11 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Appointment } from "../appointment/appointment";
 import { Dosage } from "../dosage/Dosage";
 import { Vitals } from "../vitals/vitals";
 
 import "./Homepage.css";
 
-export const Homepage = () => {
+export const Homepage = ({ token }) => {
+  const [appointments, setAppointments] = useState([]);
+  const [vitals, setVitals] = useState([]);
+  const [dosage, setDosage] = useState([]);
+
+  const test = async () => {
+    let appointment = await axios.get(
+      "https://healthserver-psa.herokuapp.com/api/appointment/",
+      { headers: { authorization: `Bearer ${token}` } }
+    );
+    appointment === [] && setAppointments(appointment.data);
+    // vitals = await axios.get(
+    //   "https://healthserver-psa.herokuapp.com/api/vital/",
+    //   { headers: { Authorization: `Bearer ${token}` } }
+    // );
+    // dosages = await axios.get(
+    //   "https://healthserver-psa.herokuapp.com/api/dosage/",
+    //   { headers: { Authorization: `Bearer ${token}` } }
+    // );
+    console.log(appointments);
+  };
+
+  useEffect(() => {
+    test();
+  }, []);
+
   return (
     <>
       <section className="homeContainer">
@@ -28,7 +54,7 @@ export const Homepage = () => {
           <Vitals />
 
           <div className="medicals">
-            <Appointment />
+            <Appointment appointments={appointments}/>
             <Dosage />
           </div>
         </div>

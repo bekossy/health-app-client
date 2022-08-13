@@ -11,6 +11,8 @@ const Auth = ({
   handleSubmit,
   signup,
   signin,
+  setHome,
+  setUser,
 }) => {
   return (
     <div className="formContainer">
@@ -22,9 +24,11 @@ const Auth = ({
           setPassword={setPassword}
           handleSubmit={handleSubmit}
           signin={signin}
+          setHome={setHome}
+          setUser={setUser}
         />
       ) : (
-        <Register signup={signup} />
+        <Register setHome={setHome} signup={signup} setUser={setUser} />
       )}
     </div>
   );

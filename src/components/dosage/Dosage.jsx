@@ -2,9 +2,9 @@ import { useState } from "react";
 
 export const Dosage = () => {
   const dosage = [
-    { id: new Date().getTime().toString(), dose: "Cabsule: Two Tablets" },
-    { id: new Date().getTime().toString(), dose: "Amocline: Twice daily" },
-    { id: new Date().getTime().toString(), dose: "Weed: Twice daily" },
+    { id: 1, dose: "Cabsule: Two Tablets" },
+    { id: 2, dose: "Amocline: Twice daily" },
+    { id: 3, dose: "Weed: Twice daily" },
   ];
   const [dose, setDose] = useState([...dosage]);
   return (
@@ -12,16 +12,11 @@ export const Dosage = () => {
       <div className="medDos">
         <h1>Medical Dosage</h1>
         <div className="medDosContainer">
-          {dose.map((drug) => {
-            const { id, dose } = drug;
-            return (
-              <>
-                <div className="dosContent" key={id}>
-                  <h1>{dose}</h1>
-                </div>
-              </>
-            );
-          })}
+          {dose.map((drug) => (
+            <div className="dosContent" key={drug.id}>
+              <h1>{drug.dose}</h1>
+            </div>
+          ))}
         </div>
       </div>
     </>

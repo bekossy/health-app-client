@@ -1,8 +1,9 @@
 import "./auth.css";
 import { useState } from "react";
-import { registerUser } from "../../api";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const Register = ({ signup }) => {
+export const Register = ({ signup, setHome }) => {
   const [regData, setRegData] = useState({
     firstName: "",
     lastName: "",
@@ -15,26 +16,33 @@ export const Register = ({ signup }) => {
     ConPassword: "",
   });
 
-  const handleOnsubmit = async (e) => {
+  const navigate = useNavigate();
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log(regData.password, regData.ConPassword);
     if (regData.password !== regData.ConPassword) {
       alert("Passwords dont match");
       return;
     }
-    const response = await registerUser(regData);
-    console.log(response);
+    const response = await axios.post(
+      "https://healthserver-psa.herokuapp.com/api/user",
+      regData
+    );
+    if (response.status === 201) {
+      setHome(false);
+      localStorage.setItem("user", JSON.stringify(response.data));
+      setUser(JSON.parse(localStorage.getItem("user")));
+      navigate("/home");
+    }
   };
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setRegData({ ...regData, [name]: value });
-    console.log(regData);
   };
 
   return (
     <>
-      <form className="auth" onSubmit={handleOnsubmit}>
+      <form className="auth" onSubmit={handleOnSubmit}>
         <h1>Sign up</h1>
         <h3>Monitor your health from your home</h3>
 
