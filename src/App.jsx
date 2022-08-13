@@ -1,8 +1,10 @@
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from "./components/auth/auth";
-import Home from "./components/home/Home";
 import Header from "./components/navigation/header";
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./components/home/Home.css";
+import { Homepage } from "./components/Homepage/Homepage";
+import Settings from "./components/settings/Settings";
 
 const App = () => {
   const [homeContent, setHomeContent] = useState(false);
@@ -32,19 +34,27 @@ const App = () => {
 
   return (
     <>
-      <Header home={home} setAuth={setAuth} user={user} auth={auth} />
-      {home && (
-        <Auth
-          homeContent={homeContent}
-          auth={auth}
-          username={username}
-          setUsername={setUsername}
-          password={password}
-          setPassword={setPassword}
-          handleSubmit={handleSubmit}
-        />
-      )}
-      {!home && <Home />}
+      <BrowserRouter>
+        <Header home={home} setAuth={setAuth} user={user} auth={auth} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Auth
+                homeContent={homeContent}
+                auth={auth}
+                username={username}
+                setUsername={setUsername}
+                password={password}
+                setPassword={setPassword}
+                handleSubmit={handleSubmit}
+              />
+            }
+          />
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };
