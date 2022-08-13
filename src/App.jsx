@@ -1,4 +1,3 @@
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Auth from "./components/auth/auth";
 import Home from "./components/home/Home";
 import Header from "./components/navigation/header";
@@ -15,12 +14,6 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username && password) {
-      const authLogin = {
-        id: new Date().getTime().toString(),
-        username,
-        password,
-      };
-      console.log(authLogin);
       setUser(username);
       setHome(false);
       setHomeContent(true);
@@ -28,6 +21,12 @@ const App = () => {
       setPassword("");
       setHome(false);
     }
+  };
+  const signin = () => {
+    setAuth(false);
+  };
+  const signup = () => {
+    setAuth(true);
   };
 
   return (
@@ -42,6 +41,8 @@ const App = () => {
           password={password}
           setPassword={setPassword}
           handleSubmit={handleSubmit}
+          signin={signin}
+          signup={signup}
         />
       )}
       {!home && <Home />}
