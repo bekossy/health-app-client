@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Appointment } from "../appointment/appointment";
 import { Dosage } from "../dosage/Dosage";
-import { Footer } from "../footer/footer";
 import { Vitals } from "../vitals/vitals";
 
 import "./Homepage.css";
@@ -34,7 +33,6 @@ export const Homepage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };
