@@ -2,7 +2,6 @@ import Auth from "./components/auth/auth";
 import Header from "./components/navigation/header";
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./components/home/Home.css";
 import { Homepage } from "./components/Homepage/Homepage";
 import Settings from "./components/settings/Settings";
 
