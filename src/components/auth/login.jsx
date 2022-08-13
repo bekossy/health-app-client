@@ -7,6 +7,7 @@ export const Login = ({
   username,
   setUsername,
   handleSubmit,
+  signin,
 }) => {
   return (
     <>
@@ -32,20 +33,12 @@ export const Login = ({
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {/* <div className="opts">
-                <input type="checkbox" name="" id="" />
-            </div> */}
-
         <button type="submit" className="btn">
           Login
         </button>
 
-        {/* <h4>Not registered yet? <Link to={"/signup"} className="create">Create an account</Link></h4> */}
         <h4>
-          Not registered yet?{" "}
-          <a href="#" className="create">
-            Create an account
-          </a>
+          Not registered yet? <span onClick={signin}>Create an account</span>
         </h4>
       </form>
     </>

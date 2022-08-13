@@ -2,7 +2,7 @@ import "./auth.css";
 import { useState } from "react";
 import { registerUser } from "../../api";
 
-export const Register = () => {
+export const Register = ({ signup }) => {
   const [regData, setRegData] = useState({
     firstName: "",
     lastName: "",
@@ -135,10 +135,7 @@ export const Register = () => {
         </button>
 
         <h4>
-          Already have an account?{" "}
-          <a href="#" className="create">
-            Login here
-          </a>
+          Already have an account? <span onClick={signup}>Login here</span>
         </h4>
       </form>
     </>

@@ -57,6 +57,10 @@ input[type="number"] {
   font-size: 12px;
   margin-bottom: 20px;
 }
+.auth span {
+  color: #43a9bd;
+  cursor: pointer;
+}
 
 .gender {
   margin: 20px auto;
