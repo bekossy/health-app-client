@@ -35,6 +35,7 @@ const Auth = ({
           signup={signup}
           setUser={setUser}
           setToken={setToken}
+          setModal={setModal}
         />
       )}
     </div>
