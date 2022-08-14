@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { modalTypes } from "../modals";
 import axios from "axios";
-import { createGlobalStyle } from "styled-components";
 
 export const Appointment = ({
   appointments,

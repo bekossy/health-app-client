@@ -15,7 +15,6 @@ import Settings from "./components/settings/Settings";
 import { useEffect } from "react";
 import { modalTypes } from "./components/modals";
 import Modals from "./components/modals/Modals";
-import { Edit } from "@material-ui/icons";
 
 const App = () => {
   const [homeContent, setHomeContent] = useState(false);
