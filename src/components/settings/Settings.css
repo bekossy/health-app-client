@@ -79,3 +79,26 @@
   border-radius: 1rem;
   overflow-y: scroll;
 }
+
+@media screen and (max-width: 850px) {
+  .settings {
+    height: auto;
+    width: 100%;
+  }
+
+  .settingscontainer {
+    height: auto;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 6000px) {
+  .userProfile {
+    width: 100%;
+  }
+
+  .history {
+    width: 100%;
+  }
+}

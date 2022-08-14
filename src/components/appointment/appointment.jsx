@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { modalTypes } from "../modals";
 import axios from "axios";
 
@@ -6,8 +5,9 @@ export const Appointment = ({
   appointments,
   setModal,
   setEditData,
-  editData,
   token,
+  setRefresh,
+  refresh,
 }) => {
   const handleDelete = async (path, id) => {
     const res = await axios.delete(
@@ -15,7 +15,10 @@ export const Appointment = ({
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (res.status == 200) {
-      alert("deleted");
+      alert("deleted appointment");
+      setRefresh(!refresh);
+    } else {
+      alert("try again");
     }
   };
   return (

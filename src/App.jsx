@@ -1,23 +1,14 @@
 import Auth from "./components/auth/auth";
-import Home from "./components/home/Home";
-import Header from "./components/navigation/header";
-import { useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Footer } from "./components/footer/footer";
 import { Homepage } from "./components/Homepage/Homepage";
 import Settings from "./components/settings/Settings";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { modalTypes } from "./components/modals";
 import Modals from "./components/modals/Modals";
+import Header from "./components/navigation/header";
 
 const App = () => {
-  const [homeContent, setHomeContent] = useState(false);
   const [auth, setAuth] = useState(true);
   const [home, setHome] = useState(true);
   const [username, setUsername] = useState("");
@@ -26,6 +17,7 @@ const App = () => {
   const [token, setToken] = useState("");
   const [modal, setModal] = useState(modalTypes.none);
   const [editData, setEditData] = useState({});
+  const [refresh, setRefresh] = useState(true);
 
   const randUser = JSON.parse(localStorage.getItem("user"));
 
@@ -37,17 +29,6 @@ const App = () => {
       setToken(randUser.token);
     }
   }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username && password) {
-      setHome(false);
-      setHomeContent(true);
-      setUsername("");
-      setPassword("");
-      setHome(false);
-    }
-  };
   const signin = () => {
     setAuth(false);
   };
@@ -66,6 +47,7 @@ const App = () => {
           setUsername={setUsername}
           setUser={setUser}
           setHome={setHome}
+          username={username}
         />
         <Routes>
           <Route
@@ -78,12 +60,12 @@ const App = () => {
                   setUsername={setUsername}
                   password={password}
                   setPassword={setPassword}
-                  handleSubmit={handleSubmit}
                   signin={signin}
                   signup={signup}
                   setHome={setHome}
                   setUser={setUser}
                   setToken={setToken}
+                  setModal={setModal}
                 />
               ) : (
                 <Navigate to="/home" />
@@ -100,6 +82,8 @@ const App = () => {
                   modal={modal}
                   editData={editData}
                   setEditData={setEditData}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
                 />
               ) : (
                 <Navigate to={"/"} />
@@ -117,6 +101,8 @@ const App = () => {
                   modal={modal}
                   editData={editData}
                   setEditData={setEditData}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
                 />
               ) : (
                 <Navigate to={"/"} />
@@ -131,9 +117,11 @@ const App = () => {
             editData={editData}
             setEditData={setEditData}
             token={token}
+            setRefresh={setRefresh}
+            refresh={refresh}
           />
         )}
-        <Footer />
+        {user && <Footer />}
       </BrowserRouter>
     </>
   );
