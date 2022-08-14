@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export const Register = ({ signup, setHome }) => {
+export const Register = ({ signup, setHome, setUser, setToken }) => {
   const [regData, setRegData] = useState({
     firstName: "",
     lastName: "",
@@ -27,11 +27,13 @@ export const Register = ({ signup, setHome }) => {
       "https://healthserver-psa.herokuapp.com/api/user",
       regData
     );
-    if (response.status === 201) {
+
+    if (response.status === 200) {
       setHome(false);
       localStorage.setItem("user", JSON.stringify(response.data));
       setUser(JSON.parse(localStorage.getItem("user")));
       navigate("/home");
+      setToken(response.data.token);
     }
   };
 

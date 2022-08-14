@@ -3,34 +3,43 @@ import axios from "axios";
 import { Appointment } from "../appointment/appointment";
 import { Dosage } from "../dosage/Dosage";
 import { Vitals } from "../vitals/vitals";
+import Modals from "../modals/Modals";
+import { modalTypes } from "../modals";
 
 import "./Homepage.css";
 
-export const Homepage = ({ token }) => {
+export const Homepage = ({ token, setModal, modal, editData, setEditData }) => {
   const [appointments, setAppointments] = useState([]);
-  const [vitals, setVitals] = useState([]);
+  const [vitals, setVitals] = useState({});
   const [dosage, setDosage] = useState([]);
+  const [after, setAfter] = useState(0);
 
-  const test = async () => {
-    let appointment = await axios.get(
-      "https://healthserver-psa.herokuapp.com/api/appointment/",
-      { headers: { authorization: `Bearer ${token}` } }
+  let test = async () => {
+    if (after < 2) setAfter(after + 1);
+    let tempVital = await axios.get(
+      "https://healthserver-psa.herokuapp.com/api/vital",
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
     );
-    appointment === [] && setAppointments(appointment.data);
-    // vitals = await axios.get(
-    //   "https://healthserver-psa.herokuapp.com/api/vital/",
-    //   { headers: { Authorization: `Bearer ${token}` } }
-    // );
-    // dosages = await axios.get(
-    //   "https://healthserver-psa.herokuapp.com/api/dosage/",
-    //   { headers: { Authorization: `Bearer ${token}` } }
-    // );
-    console.log(appointments);
+    setVitals(tempVital.data);
+    if (after < 2) setAfter(after + 1);
+    let temDosages = await axios.get(
+      "https://healthserver-psa.herokuapp.com/api/dosage/",
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    setDosage(temDosages.data);
+
+    let tempAppoinment = await axios.get(
+      "https://healthserver-psa.herokuapp.com/api/appointment/",
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    setAppointments(tempAppoinment.data);
   };
 
   useEffect(() => {
     test();
-  }, []);
+  }, [after]);
 
   return (
     <>
@@ -51,11 +60,46 @@ export const Homepage = ({ token }) => {
         </form>
 
         <div className="homeContent">
-          <Vitals />
+          <Vitals
+            blodPressure={vitals?.blodPressure}
+            weight={vitals?.weight}
+            height={vitals?.height}
+            Glucoselevel={vitals?.Glucoselevel}
+          />
+          <>
+            <div
+              className="editVitals"
+              onClick={() => {
+                setModal(modalTypes.vitalAdd);
+              }}
+            >
+              Add Vitals
+            </div>
+            <div
+              className="editVitals"
+              onClick={() => {
+                setModal(modalTypes.vitalEdit);
+                setEditData(vitals);
+              }}
+            >
+              Edit Vitals
+            </div>
+          </>
 
           <div className="medicals">
-            <Appointment appointments={appointments}/>
-            <Dosage />
+            <Appointment
+              setModal={setModal}
+              appointments={appointments}
+              setEditData={setEditData}
+              editData={editData}
+              token={token}
+            />
+            <Dosage
+              dosage={dosage}
+              setModal={setModal}
+              token={token}
+              setEditData={setEditData}
+            />
           </div>
         </div>
       </section>

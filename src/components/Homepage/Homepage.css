@@ -99,12 +99,26 @@ input[type="search"]:focus {
 }
 .appointDetails h4 {
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 }
+
 .medDosContainer .dosContent {
   border-bottom: 1px solid gray;
 }
 .medDosContainer .dosContent:last-of-type {
   border-bottom: none;
+}
+
+.editVitals {
+  margin-left: auto;
+  margin: auto;
+  height: 45px;
+  width: 140px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 750px) {
