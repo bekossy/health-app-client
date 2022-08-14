@@ -1,7 +1,14 @@
 import axios from "axios";
 import { modalTypes } from "../modals";
 
-export const Dosage = ({ dosage, setModal, token, setEditData }) => {
+export const Dosage = ({
+  dosage,
+  setModal,
+  token,
+  setEditData,
+  refresh,
+  setRefresh,
+}) => {
   const handleDelete = async (path, id) => {
     const res = await axios.delete(
       `https://healthserver-psa.herokuapp.com/api/${path}/${id}`,
@@ -9,6 +16,9 @@ export const Dosage = ({ dosage, setModal, token, setEditData }) => {
     );
     if (res.status == 200) {
       alert("deleted dosage");
+      setRefresh(!refresh);
+    } else {
+      alert("try again");
     }
   };
   return (

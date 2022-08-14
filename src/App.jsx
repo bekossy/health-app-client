@@ -18,6 +18,7 @@ const App = () => {
   const [token, setToken] = useState("");
   const [modal, setModal] = useState(modalTypes.none);
   const [editData, setEditData] = useState({});
+  const [refresh, setRefresh] = useState(true);
 
   const randUser = JSON.parse(localStorage.getItem("user"));
 
@@ -48,6 +49,7 @@ const App = () => {
           setUsername={setUsername}
           setUser={setUser}
           setHome={setHome}
+          username={username}
         />
         <Routes>
           <Route
@@ -65,6 +67,7 @@ const App = () => {
                   setHome={setHome}
                   setUser={setUser}
                   setToken={setToken}
+                  setModal={setModal}
                 />
               ) : (
                 <Navigate to="/home" />
@@ -81,6 +84,8 @@ const App = () => {
                   modal={modal}
                   editData={editData}
                   setEditData={setEditData}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
                 />
               ) : (
                 <Navigate to={"/"} />
@@ -98,6 +103,8 @@ const App = () => {
                   modal={modal}
                   editData={editData}
                   setEditData={setEditData}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
                 />
               ) : (
                 <Navigate to={"/"} />
@@ -112,6 +119,8 @@ const App = () => {
             editData={editData}
             setEditData={setEditData}
             token={token}
+            setRefresh={setRefresh}
+            refresh={refresh}
           />
         )}
         {user && <Footer />}

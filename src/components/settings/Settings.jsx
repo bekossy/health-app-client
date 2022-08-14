@@ -5,7 +5,15 @@ import Conditions from "../conditions/Conditions";
 import axios from "axios";
 import { modalTypes } from "../modals";
 
-const Settings = ({ user, token, setModal, editData, setEditData }) => {
+const Settings = ({
+  user,
+  token,
+  setModal,
+  editData,
+  setEditData,
+  setRefresh,
+  refresh,
+}) => {
   const [condition, setCondition] = useState([]);
   const [after, setAfter] = useState(0);
 
@@ -21,7 +29,7 @@ const Settings = ({ user, token, setModal, editData, setEditData }) => {
 
   useEffect(() => {
     fetchData();
-  }, [after]);
+  }, [after, refresh]);
 
   const handleDelete = async (path, id) => {
     const res = await axios.delete(
@@ -30,6 +38,9 @@ const Settings = ({ user, token, setModal, editData, setEditData }) => {
     );
     if (res.status == 200) {
       alert("deleted ");
+      setRefresh(!refresh);
+    } else {
+      alert("try again");
     }
   };
 

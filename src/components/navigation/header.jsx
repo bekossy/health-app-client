@@ -3,7 +3,7 @@ import { NavBtns } from "./navOpts/navBtns";
 import Logo from "./navImage/pha logo.png";
 import "./header.css";
 
-const Header = ({ setAuth, home, user, auth, setHome, setUser }) => {
+const Header = ({ setAuth, home, user, auth, setHome, setUser, username }) => {
   return (
     <>
       <section>
@@ -15,7 +15,7 @@ const Header = ({ setAuth, home, user, auth, setHome, setUser }) => {
           {home ? (
             <NavBtns setAuth={setAuth} auth={auth} />
           ) : (
-            <User user={user} setHome={setHome} setUser={setUser} />
+            <User user={username} setHome={setHome} setUser={setUser} />
           )}
         </nav>
       </section>

@@ -2,8 +2,9 @@ import "./auth.css";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { modalTypes } from "../modals";
 
-export const Register = ({ signup, setHome, setUser, setToken }) => {
+export const Register = ({ signup, setHome, setUser, setToken, setModal }) => {
   const [regData, setRegData] = useState({
     firstName: "",
     lastName: "",
@@ -34,6 +35,10 @@ export const Register = ({ signup, setHome, setUser, setToken }) => {
       setUser(JSON.parse(localStorage.getItem("user")));
       navigate("/home");
       setToken(response.data.token);
+      alert("welcome new user please add vitals");
+      setModal(modalTypes.vitalAdd);
+    } else {
+      alert("please try again");
     }
   };
 

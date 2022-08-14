@@ -8,7 +8,14 @@ import { modalTypes } from "../modals";
 
 import "./Homepage.css";
 
-export const Homepage = ({ token, setModal, modal, editData, setEditData }) => {
+export const Homepage = ({
+  token,
+  setModal,
+  setRefresh,
+  editData,
+  refresh,
+  setEditData,
+}) => {
   const [appointments, setAppointments] = useState([]);
   const [filterAppointments, setfilterAppointments] = useState([]);
   const [vitals, setVitals] = useState({});
@@ -41,7 +48,7 @@ export const Homepage = ({ token, setModal, modal, editData, setEditData }) => {
 
   useEffect(() => {
     fetchData();
-  }, [after]);
+  }, [after, refresh]);
 
   return (
     <>
@@ -102,12 +109,16 @@ export const Homepage = ({ token, setModal, modal, editData, setEditData }) => {
               setEditData={setEditData}
               editData={editData}
               token={token}
+              setRefresh={setRefresh}
+              refresh={refresh}
             />
             <Dosage
               dosage={dosage}
               setModal={setModal}
               token={token}
               setEditData={setEditData}
+              setRefresh={setRefresh}
+              refresh={refresh}
             />
           </div>
         </div>
