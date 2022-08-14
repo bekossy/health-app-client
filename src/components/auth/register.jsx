@@ -42,6 +42,8 @@ export const Register = ({ signup, setHome, setUser, setToken, setModal }) => {
     }
   };
 
+  //final
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setRegData({ ...regData, [name]: value });
