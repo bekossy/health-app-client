@@ -37,7 +37,7 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
         <h1>Sign in</h1>
         <h3>Monitor your health from your home</h3>
 
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Email</label>
         <input
           type="text"
           name="email"
