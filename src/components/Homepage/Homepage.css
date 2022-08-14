@@ -110,6 +110,23 @@ input[type="search"]:focus {
   border-bottom: none;
 }
 
+.vitalBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-left: auto;
+}
+
+.editV {
+  margin-left: 10px;
+  padding: 15px 25px;
+  background-color: white;
+  color: #295e76;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
 .editVitals {
   margin-left: auto;
   margin: auto;
@@ -119,6 +136,9 @@ input[type="search"]:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: #295e76;
 }
 
 @media screen and (max-width: 750px) {

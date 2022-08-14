@@ -21,6 +21,10 @@
   gap: 15px;
 }
 
+.editVitas {
+  cursor: pointer;
+}
+
 .modalButton {
   background-color: black;
   display: flex;

@@ -67,22 +67,24 @@ export const Homepage = ({ token, setModal, modal, editData, setEditData }) => {
             Glucoselevel={vitals?.Glucoselevel}
           />
           <>
-            <div
-              className="editVitals"
-              onClick={() => {
-                setModal(modalTypes.vitalAdd);
-              }}
-            >
-              Add Vitals
-            </div>
-            <div
-              className="editVitals"
-              onClick={() => {
-                setModal(modalTypes.vitalEdit);
-                setEditData(vitals);
-              }}
-            >
-              Edit Vitals
+            <div className="vitalBtn">
+              <div
+                className="editV"
+                onClick={() => {
+                  setModal(modalTypes.vitalAdd);
+                }}
+              >
+                Add Vitals
+              </div>
+              <div
+                className="editV"
+                onClick={() => {
+                  setModal(modalTypes.vitalEdit);
+                  setEditData(vitals);
+                }}
+              >
+                Edit Vitals
+              </div>
             </div>
           </>
 
