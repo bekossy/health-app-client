@@ -8,6 +8,11 @@
   display: flex;
   float: right;
   margin-top: 20px;
+  width: 500px;
+}
+
+#search {
+  width: 100%;
 }
 .search svg {
   position: relative;

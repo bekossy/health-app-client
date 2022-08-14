@@ -4,13 +4,12 @@ import DataBox from "../dataBox/dataBox";
 import Conditions from "../conditions/Conditions";
 import axios from "axios";
 import { modalTypes } from "../modals";
-import Modals from "../modals/Modals";
 
-const Settings = ({ user, token, setModal, modal, editData, setEditData }) => {
+const Settings = ({ user, token, setModal, editData, setEditData }) => {
   const [condition, setCondition] = useState([]);
   const [after, setAfter] = useState(0);
 
-  let test = async () => {
+  const fetchData = async () => {
     if (after < 2) setAfter(after + 1);
     let tempCondition = await axios.get(
       "https://healthserver-psa.herokuapp.com/api/conditions/",
@@ -21,7 +20,7 @@ const Settings = ({ user, token, setModal, modal, editData, setEditData }) => {
   };
 
   useEffect(() => {
-    test();
+    fetchData();
   }, [after]);
 
   const handleDelete = async (path, id) => {
@@ -30,7 +29,7 @@ const Settings = ({ user, token, setModal, modal, editData, setEditData }) => {
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (res.status == 200) {
-      alert("deleted");
+      alert("deleted ");
     }
   };
 

@@ -1,22 +1,14 @@
-import { useState } from "react";
 import { modalTypes } from "../modals";
 import axios from "axios";
-import { createGlobalStyle } from "styled-components";
 
-export const Appointment = ({
-  appointments,
-  setModal,
-  setEditData,
-  editData,
-  token,
-}) => {
+export const Appointment = ({ appointments, setModal, setEditData, token }) => {
   const handleDelete = async (path, id) => {
     const res = await axios.delete(
       `https://healthserver-psa.herokuapp.com/api/${path}/${id}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (res.status == 200) {
-      alert("deleted");
+      alert("deleted appointment");
     }
   };
   return (

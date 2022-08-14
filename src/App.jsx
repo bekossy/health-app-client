@@ -1,24 +1,15 @@
 import Auth from "./components/auth/auth";
-import Home from "./components/home/Home";
 import Header from "./components/navigation/header";
 import { useState } from "react";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useNavigate,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Footer } from "./components/footer/footer";
 import { Homepage } from "./components/Homepage/Homepage";
 import Settings from "./components/settings/Settings";
 import { useEffect } from "react";
 import { modalTypes } from "./components/modals";
 import Modals from "./components/modals/Modals";
-import { Edit } from "@material-ui/icons";
 
 const App = () => {
-  const [homeContent, setHomeContent] = useState(false);
   const [auth, setAuth] = useState(true);
   const [home, setHome] = useState(true);
   const [username, setUsername] = useState("");
@@ -39,16 +30,6 @@ const App = () => {
     }
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (username && password) {
-      setHome(false);
-      setHomeContent(true);
-      setUsername("");
-      setPassword("");
-      setHome(false);
-    }
-  };
   const signin = () => {
     setAuth(false);
   };
@@ -79,7 +60,6 @@ const App = () => {
                   setUsername={setUsername}
                   password={password}
                   setPassword={setPassword}
-                  handleSubmit={handleSubmit}
                   signin={signin}
                   signup={signup}
                   setHome={setHome}
@@ -134,7 +114,7 @@ const App = () => {
             token={token}
           />
         )}
-        <Footer />
+        {user && <Footer />}
       </BrowserRouter>
     </>
   );

@@ -80,7 +80,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                   // e.preventDefault()
                   const res = await handleAdd(modalData, "vital");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("crteted new vitals");
                   }
                   setModal(false);
                   setModalData({});
@@ -139,7 +139,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                 onClick={async () => {
                   const res = await handleEdit(modalEditData, "vital");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("updated vitals");
                   }
                   setModal(false);
                   setModalData({});
@@ -198,7 +198,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                   }
                   const res = await handleAdd(modalData, "dosage");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("created new dosage");
                   }
                   setModal(false);
                   setModalData({});
@@ -256,7 +256,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                 onClick={async () => {
                   const res = await handleEdit(modalEditData, "dosage");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("updated dosage");
                   }
                   setModal(false);
                   setModalData({});
@@ -313,6 +313,9 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                     return;
                   }
                   const res = await handleAdd(modalData, "appointment");
+                  if (res.status == 200) {
+                    alert("created apppointment");
+                  }
                   setModal(false);
                   setModalData({});
                   setEditData({});
@@ -369,7 +372,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                 onClick={async () => {
                   const res = await handleEdit(modalEditData, "appointment");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("updated appointment");
                   }
                   setModal(false);
                   setModalData({});
@@ -427,7 +430,7 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                 onClick={async () => {
                   const res = await handleEdit(modalEditData, "conditions");
                   if (res.status == 200) {
-                    alert("modified");
+                    alert("updated condition");
                   }
                   setModal(false);
                   setModalData({});
@@ -485,6 +488,9 @@ const Modals = ({ setModal, modal, editData, token, setEditData }) => {
                     return;
                   }
                   const res = await handleAdd(modalData, "conditions");
+                  if (res.status == 200) {
+                    alert("created condition");
+                  }
                   setModal(false);
                   setModalData({});
                   setEditData({});

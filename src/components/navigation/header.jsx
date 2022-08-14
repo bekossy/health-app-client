@@ -1,7 +1,6 @@
 import { User } from "./navOpts/user";
 import { NavBtns } from "./navOpts/navBtns";
 import Logo from "./navImage/pha logo.png";
-import { useNavigate } from "react-router-dom";
 import "./header.css";
 
 const Header = ({ setAuth, home, user, auth, setHome, setUser }) => {

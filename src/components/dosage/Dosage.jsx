@@ -8,7 +8,7 @@ export const Dosage = ({ dosage, setModal, token, setEditData }) => {
       { headers: { Authorization: `Bearer ${token}` } }
     );
     if (res.status == 200) {
-      alert("deleted");
+      alert("deleted dosage");
     }
   };
   return (

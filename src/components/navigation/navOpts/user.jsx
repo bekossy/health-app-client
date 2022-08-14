@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export const User = ({ user, setUser, setHome }) => {
-  const [isHome, setIsHome] = useState(true);
+  const [isHome, setIsHome] = useState(false);
   return (
     <>
       <div className="user">
@@ -44,6 +44,7 @@ export const User = ({ user, setUser, setHome }) => {
             setUser(undefined);
             setHome(true);
           }}
+          style={{ width: "24px", height: "24px" }}
         >
           <path
             fill="#000000"
