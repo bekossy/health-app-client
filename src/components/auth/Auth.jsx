@@ -12,8 +12,8 @@ const Auth = ({
   signin,
   setHome,
   setUser,
-  setToken,
   setModal,
+  setToken,
 }) => {
   return (
     <div className="formContainer">
