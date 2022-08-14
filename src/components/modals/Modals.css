@@ -1,0 +1,32 @@
+.modalsContainer {
+  height: 150%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  filter: grayscale(0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: white;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  gap: 15px;
+}
+
+.modalButton {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 40px;
+  width: 140px;
+}

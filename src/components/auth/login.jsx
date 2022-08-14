@@ -3,16 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import axios from "axios";
 
-export const Login = ({
-  password,
-  setPassword,
-  username,
-  setUsername,
-  handleSubmit,
-  signin,
-  setHome,
-  setUser,
-}) => {
+export const Login = ({ signin, setHome, setUser, setToken }) => {
   const [logData, setLogData] = useState({
     email: "",
     password: "",
@@ -31,13 +22,13 @@ export const Login = ({
       localStorage.setItem("user", JSON.stringify(response.data));
       setUser(JSON.parse(localStorage.getItem("user")));
       navigate("/home");
+      setToken(response.data.token);
     }
   };
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setLogData({ ...logData, [name]: value });
-    console.log(logData);
   };
 
   return (

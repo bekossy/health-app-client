@@ -13,6 +13,9 @@ import { Footer } from "./components/footer/footer";
 import { Homepage } from "./components/Homepage/Homepage";
 import Settings from "./components/settings/Settings";
 import { useEffect } from "react";
+import { modalTypes } from "./components/modals";
+import Modals from "./components/modals/Modals";
+import { Edit } from "@material-ui/icons";
 
 const App = () => {
   const [homeContent, setHomeContent] = useState(false);
@@ -20,10 +23,13 @@ const App = () => {
   const [home, setHome] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(undefined);
   const [token, setToken] = useState("");
+  const [modal, setModal] = useState(modalTypes.none);
+  const [editData, setEditData] = useState({});
 
   const randUser = JSON.parse(localStorage.getItem("user"));
+
   useEffect(() => {
     if (randUser) {
       setUser(randUser);
@@ -32,9 +38,6 @@ const App = () => {
       setToken(randUser.token);
     }
   }, []);
-
-  console.log(user);
-  console.log(token);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,41 +65,77 @@ const App = () => {
           user={username}
           auth={auth}
           setUsername={setUsername}
+          setUser={setUser}
+          setHome={setHome}
         />
         <Routes>
           <Route
             path="/"
             element={
-              <Auth
-                auth={auth}
-                username={username}
-                setUsername={setUsername}
-                password={password}
-                setPassword={setPassword}
-                handleSubmit={handleSubmit}
-                signin={signin}
-                signup={signup}
-                setHome={setHome}
-                setUser={setUser}
-              />
+              !user ? (
+                <Auth
+                  auth={auth}
+                  username={username}
+                  setUsername={setUsername}
+                  password={password}
+                  setPassword={setPassword}
+                  handleSubmit={handleSubmit}
+                  signin={signin}
+                  signup={signup}
+                  setHome={setHome}
+                  setUser={setUser}
+                  setToken={setToken}
+                />
+              ) : (
+                <Navigate to="/home" />
+              )
             }
           />
           <Route
             path="/home"
-            element={user ? <Homepage token={token} /> : <Navigate to={"/"} />}
+            element={
+              user ? (
+                <Homepage
+                  setModal={setModal}
+                  token={token}
+                  modal={modal}
+                  editData={editData}
+                  setEditData={setEditData}
+                />
+              ) : (
+                <Navigate to={"/"} />
+              )
+            }
           />
           <Route
             path="/settings"
-            element={user ? <Settings /> : <Navigate to={"/"} />}
+            element={
+              user ? (
+                <Settings
+                  user={user}
+                  token={token}
+                  setModal={setModal}
+                  modal={modal}
+                  editData={editData}
+                  setEditData={setEditData}
+                />
+              ) : (
+                <Navigate to={"/"} />
+              )
+            }
           />
         </Routes>
+        {modal && (
+          <Modals
+            setModal={setModal}
+            modal={modal}
+            editData={editData}
+            setEditData={setEditData}
+            token={token}
+          />
+        )}
         <Footer />
       </BrowserRouter>
-
-      {/* {home && (
-        
-      )}
-      {!home && <Home />} */}
     </>
   );
 };

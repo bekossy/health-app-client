@@ -1,13 +1,13 @@
-export const Vitals = () => {
+export const Vitals = ({ blodPressure, weight, height, Glucoselevel }) => {
   return (
     <>
       <div className="vitals">
         <h1>your Vitals</h1>
         <div className="vitalContainer">
-          <h3>Heart rate: 21bpm</h3>
-          <h3>Blood pressure: 120/80mmhg</h3>
-          <h3>Glucose level: 130 mg/dLm</h3>
-          <h3>Weight: 75kg</h3>
+          <h3>blod Pressure : {blodPressure ? blodPressure : "please add"}</h3>
+          <h3>Glucos Level : {Glucoselevel ? Glucoselevel : "please add"}</h3>
+          <h3>weight : {weight ? weight : "please add"}</h3>
+          <h3>height : {height ? height : "please add"}</h3>
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import Logo from "./navImage/pha logo.png";
 import { useNavigate } from "react-router-dom";
 import "./header.css";
 
-const Header = ({ setAuth, home, user, auth, setUsername }) => {
+const Header = ({ setAuth, home, user, auth, setHome, setUser }) => {
   return (
     <>
       <section>
@@ -16,7 +16,7 @@ const Header = ({ setAuth, home, user, auth, setUsername }) => {
           {home ? (
             <NavBtns setAuth={setAuth} auth={auth} />
           ) : (
-            <User user={user} />
+            <User user={user} setHome={setHome} setUser={setUser} />
           )}
         </nav>
       </section>
