@@ -37,7 +37,7 @@ export const User = ({ user, setUser, setHome }) => {
           )}
         </div>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
+          style={{ width: "24px", height: "24px", cursor: "pointer" }}
           viewBox="0 0 24 24"
           onClick={() => {
             localStorage.removeItem("user");
@@ -46,7 +46,7 @@ export const User = ({ user, setUser, setHome }) => {
           }}
         >
           <path
-            fill="#000000"
+            fill="currentColor"
             d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"
           />
         </svg>
