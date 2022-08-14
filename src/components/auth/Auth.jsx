@@ -12,8 +12,8 @@ const Auth = ({
   signin,
   setHome,
   setUser,
-  setToken,
   setModal,
+  setToken,
 }) => {
   return (
     <div className="formContainer">
@@ -35,6 +35,7 @@ const Auth = ({
           signup={signup}
           setUser={setUser}
           setToken={setToken}
+          setModal={setModal}
         />
       )}
     </div>

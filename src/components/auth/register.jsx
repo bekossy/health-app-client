@@ -35,12 +35,14 @@ export const Register = ({ signup, setHome, setUser, setToken, setModal }) => {
       setUser(JSON.parse(localStorage.getItem("user")));
       navigate("/home");
       setToken(response.data.token);
-            alert("welcome new user please add vitals");
       setModal(modalTypes.vitalAdd);
+      alert("welcome new user please add vitals");
     } else {
       alert("please try again");
     }
   };
+
+  //final
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
