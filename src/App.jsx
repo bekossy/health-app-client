@@ -24,11 +24,18 @@ const App = () => {
   useEffect(() => {
     if (randUser) {
       setUser(randUser);
-      setUsername(randUser.userName);
       setHome(false);
       setToken(randUser.token);
+      refresh(!refresh);
     }
   }, []);
+
+  useEffect(() => {
+    if (randUser) {
+      setUsername(randUser.userName);
+    }
+  }, [refresh]);
+
   const signin = () => {
     setAuth(false);
   };
@@ -119,6 +126,7 @@ const App = () => {
             token={token}
             setRefresh={setRefresh}
             refresh={refresh}
+            setUser={setUser}
           />
         )}
         {user && <Footer />}
