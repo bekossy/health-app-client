@@ -26,7 +26,7 @@ const App = () => {
       setUser(randUser);
       setHome(false);
       setToken(randUser.token);
-      refresh(!refresh);
+      setRefresh(!refresh);
     }
   }, []);
 
