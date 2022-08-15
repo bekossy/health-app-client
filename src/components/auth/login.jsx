@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./auth.css";
 import axios from "axios";
+import { handleLogin } from "../../api";
 
 export const Login = ({ signin, setHome, setUser, setToken }) => {
   const [logData, setLogData] = useState({
@@ -13,10 +14,7 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "https://healthserver-psa.herokuapp.com/api/user/login",
-      logData
-    );
+    const response = handleLogin(logData);
     if (response.status === 200) {
       setHome(false);
       localStorage.setItem("user", JSON.stringify(response.data));
@@ -36,7 +34,6 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
       <form className="auth" onSubmit={handleOnSubmit}>
         <h1>Sign in</h1>
         <h3>Monitor your health from your home</h3>
-
         <label htmlFor="username">Email</label>
         <input
           type="text"
@@ -44,7 +41,6 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
           id="username"
           onChange={handleOnChange}
         />
-
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -52,11 +48,9 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
           id="password"
           onChange={handleOnChange}
         />
-
         <button type="submit" className="btn">
           Login
         </button>
-
         <h4>
           Not registered yet? <span onClick={signin}>Create an account</span>
         </h4>

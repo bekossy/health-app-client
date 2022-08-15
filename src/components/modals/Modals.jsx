@@ -11,6 +11,7 @@ const Modals = ({
   setEditData,
   setRefresh,
   refresh,
+  setUser,
 }) => {
   const [modalData, setModalData] = useState({});
   const [modalEditData, setModalEditData] = useState(editData);
@@ -23,7 +24,6 @@ const Modals = ({
   const handleOnEdit = (e) => {
     const { name, value } = e.target;
     setModalEditData({ ...modalEditData, [name]: value });
-    console.log(modalEditData);
   };
 
   const handleAdd = async (body, path) => {
@@ -587,9 +587,12 @@ const Modals = ({
                   } else {
                     alert("try again");
                   }
+                  console.log(res.data);
+                  localStorage.setItem("user", JSON.stringify(res.data));
+                  setUser(JSON.parse(localStorage.getItem("user")));
                   setModal(false);
                   setModalData({});
-                  setModalData({});
+                  setModalEditData({});
                 }}
               >
                 Edit user

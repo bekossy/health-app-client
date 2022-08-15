@@ -5,9 +5,10 @@ export const registerUser = async (body) => {
   return data;
 };
 
-export const handleAddAppointment = async (body) => {
-  return await axios.post(
-    "https://healthserver-psa.herokuapp.com/api/appointment/",
+export const handleLogin = async (body) => {
+  const response = await axios.post(
+    "https://healthserver-psa.herokuapp.com/api/user/login",
     body
   );
+  return response;
 };
