@@ -14,7 +14,10 @@ export const Login = ({ signin, setHome, setUser, setToken }) => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const response = handleLogin(logData);
+    const response = await axios.post(
+      "https://healthserver-psa.herokuapp.com/api/user/login",
+      logData
+    );
     if (response.status === 200) {
       setHome(false);
       localStorage.setItem("user", JSON.stringify(response.data));

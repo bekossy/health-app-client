@@ -108,14 +108,14 @@ const Modals = ({
           <>
             <h1 className="modalTitle">Edit Vitals</h1>
             <div className="auth">
-              <label htmlFor="blodPressure">Blood Pressure</label>
+              <label htmlFor="blodPressure">blodPressure</label>
               <input
                 type="text"
                 name="blodPressure"
                 id="firstName"
                 required
+                onChange={handleOnEdit}
                 value={modalEditData.blodPressure}
-                onChange={handleEdit}
               />
               <label htmlFor="Glucoselevel">Glucose Level</label>
               <input
