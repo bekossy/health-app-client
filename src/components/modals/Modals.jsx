@@ -115,7 +115,7 @@ const Modals = ({
                 id="firstName"
                 required
                 onChange={handleOnEdit}
-                value={modalEditData.blodPressure}
+                value={modalEditData != null ? modalEditData?.blodPressure : ""}
               />
               <label htmlFor="Glucoselevel">Glucose Level</label>
               <input
