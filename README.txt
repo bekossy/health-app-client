@@ -1,3 +1,5 @@
+# Personal Health Assistant
+
 To get started with the project
 - In the project directory run the "npm install"
 - Then run the "npm run dev" command to create a localhost
